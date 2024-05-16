@@ -3,7 +3,7 @@ use anyhow::Result;
 use std::{
     collections::HashMap, 
     fmt,
-     sync::{
+    sync::{
         atomic::{AtomicI64, Ordering},
         Arc,
     }
@@ -46,7 +46,7 @@ impl Clone for AmapMetrics {
 impl fmt::Display for AmapMetrics {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         for (key, value) in self.data.iter() {
-           writeln!(f,"{}:{}",key,value.load(Ordering::Relaxed))?;  
+            writeln!(f,"{}:{}",key,value.load(Ordering::Relaxed))?;  
         }
         Ok(())
     }
