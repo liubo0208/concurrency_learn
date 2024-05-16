@@ -6,19 +6,19 @@ use anyhow::Result;
 
 
 #[derive(Debug, Clone)]
-pub struct CmapMertric {
+pub struct CmapMetrics {
     data: Arc<DashMap<String,i64>>,// Arc<Mutex<HashMap<String, i64>>> => Arc<DashMap<String, i64>>
 }
 
-impl Default for CmapMertric {
+impl Default for CmapMetrics {
     fn default() -> Self {
         Self::new()
     }
 }
 
-impl CmapMertric {
+impl CmapMetrics {
     pub fn new() -> Self{
-        CmapMertric{
+        CmapMetrics{
             data: Arc::new(DashMap::new()),
         }
     }
@@ -30,7 +30,7 @@ impl CmapMertric {
     }   
 }
 
-impl fmt::Display for CmapMertric{
+impl fmt::Display for CmapMetrics{
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         for entry in self.data.iter(){
             writeln!(f, "{}: {}", entry.key(), entry.value())?;

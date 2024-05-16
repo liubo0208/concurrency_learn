@@ -2,5 +2,5 @@ mod amap;
 
 mod cmap;
 
-use amap::*;
-use cmap::*;
+pub use amap::*;
+pub use cmap::*;
